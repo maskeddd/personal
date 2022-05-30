@@ -25,7 +25,12 @@ const colors = [
 export default function Home() {
   const [page, setPage] = useState(0);
 
-  const pages = [<About />, <Skills />, <Projects />, <Links />];
+  const pages = [
+    <About key="about" />,
+    <Skills key="skills" />,
+    <Projects key="projects" />,
+    <Links key="links" />,
+  ];
 
   return (
     <div className="bg-Base w-screen h-screen text-text font-mono">

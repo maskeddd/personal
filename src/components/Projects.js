@@ -11,6 +11,7 @@ export default function Projects() {
         <div className="flex flex-col gap-4">
           <a
             href="https://osscord.xyz"
+            rel="noreferrer"
             target="_blank"
             className="bg-Surface1 p-4 rounded-lg flex flex-row hover:bg-Surface2"
           >

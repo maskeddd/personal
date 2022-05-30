@@ -55,8 +55,9 @@ export default function Links() {
       title="Links"
       content={
         <div className="flex flex-wrap gap-2">
-          {links.map((i) => (
+          {links.map((i, index) => (
             <a
+              key={index}
               href={i.url}
               target="_blank"
               className="bg-Surface1 p-4 rounded-lg cursor-pointer hover:bg-Surface2 flex flex-row items-center flex-grow"

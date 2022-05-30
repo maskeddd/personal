@@ -4,7 +4,6 @@ import Links from "../components/Links";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import { useState } from "react";
-import { motion } from "framer-motion";
 
 const colors = [
   "#b4befe",
@@ -31,13 +30,11 @@ export default function Home() {
   return (
     <div className="bg-Base w-screen h-screen text-text font-mono">
       <div className="w-screen h-screen flex flex-col justify-center items-center">
-        <motion.div>
-          <div className="font font-bold text-6xl mb-12 flex flex-row">
-            <p>masked</p>
-            <p className={`text-[#b4befe]`}>.</p>
-            <p>design</p>
-          </div>
-        </motion.div>
+        <div className="font font-bold text-6xl mb-12 flex flex-row">
+          <p>masked</p>
+          <p className={`text-[#b4befe]`}>.</p>
+          <p>design</p>
+        </div>
 
         {pages[page]}
         <Navigation pageFunction={setPage} />

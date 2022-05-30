@@ -59,6 +59,7 @@ export default function Links() {
             <a
               key={index}
               href={i.url}
+              rel="noreferrer"
               target="_blank"
               className="bg-Surface1 p-4 rounded-lg cursor-pointer hover:bg-Surface2 flex flex-row items-center flex-grow"
             >

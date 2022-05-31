@@ -16,7 +16,7 @@ export default function Projects() {
             className="bg-Surface1 p-4 rounded-lg flex flex-row hover:bg-Surface2"
           >
             <div className="mr-4 flex items-center">
-              <Image src="/osscord.svg" width={48} height={48} />
+              <Image src="/osscord.svg" alt="osu!" width={48} height={48} />
             </div>
             <div className="flex flex-col max-w-sm">
               <div className="flex flex-row items-center gap-2">

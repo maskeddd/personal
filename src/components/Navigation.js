@@ -5,7 +5,6 @@ import {
   faCircleInfo,
   faTools,
 } from "@fortawesome/free-solid-svg-icons";
-import { motion } from "framer-motion";
 import { useState } from "react";
 import { theme } from "../../tailwind.config";
 
@@ -40,8 +39,8 @@ export default function Navigation({ pageFunction }) {
   const [active, setActive] = useState(0);
 
   return (
-    <div className="bg-Surface0 rounded-full drop-shadow-lg w-min z-0">
-      <div className="grid grid-flow-col auto-cols-max p-2.5 gap-2.5 z-2">
+    <div className="bg-Surface0 rounded-full drop-shadow-lg w-min mb-12">
+      <div className="grid grid-flow-col auto-cols-max p-2.5 gap-2.5">
         {items.map((i, index) => (
           <div
             key={index}

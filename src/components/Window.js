@@ -1,6 +1,6 @@
 export default function Window({ content, title }) {
   return (
-    <div className="max-w-lg p-4 bg-Surface0 rounded-3xl mb-12 drop-shadow-lg flex flex-col">
+    <div className="max-w-lg p-4 bg-Surface0 rounded-3xl drop-shadow-lg flex flex-col mx-6 my-12">
       <div className="mb-4 flex flex-row items-center">
         <div className="w-4 h-4 mr-2 rounded-full bg-Red"></div>
         <div className="w-4 h-4 mr-2 rounded-full bg-Yellow"></div>

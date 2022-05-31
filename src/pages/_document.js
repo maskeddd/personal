@@ -9,6 +9,7 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap"
             rel="stylesheet"
           />
+          <link rel="stylesheet" href="devicon.min.css" />
         </Head>
         <body>
           <Main />

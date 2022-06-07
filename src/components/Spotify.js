@@ -1,5 +1,6 @@
 import Window from "./Window";
 import useSWR from "swr";
+import { useEffect, useState } from "react"
 import { theme } from "../../tailwind.config";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -29,6 +30,13 @@ export default function Spotify() {
 
   const colors = Object.keys(theme.colors.colors);
 
+  const [timeElapsed, setTimeElapsed] = useState(spotify ? Date.now() - spotify.timestamps.start : 0);
+
+  useEffect(() => {
+    const interval = setInterval(() => setTimeElapsed(spotify ? Date.now() - spotify.timestamps.start : 0));
+    return () => clearInterval(interval);
+  })
+
   return (
     <Window
       title="Spotify"
@@ -49,11 +57,16 @@ export default function Spotify() {
               </div>
               {spotify.timestamps ? (
                 <div className="flex flex-row items-center text-sm text-Subtext0 gap-4">
-                  <p>{formatDuration(Date.now() - spotify.timestamps.start)}</p>
+                  <p>{formatDuration(timeElapsed)}</p>
                   <div className="h-2 rounded-full bg-colors-Lavender w-full sm:w-56 bg-opacity-30 relative">
-                    <div className="h-2 rounded-full bg-colors-Lavender w-[10%] relative" />
+                    <div
+                      className="h-2 rounded-full bg-colors-Lavender w-[10%] relative"
+                      style={{
+                        width: `${Math.max(timeElapsed / (spotify.timestamps.end - spotify.timestamps.start) * 100, 4)}%`
+                      }}
+                    />
                   </div>
-                  <p>{formatDuration(spotify.timestamps.end - Date.now())}</p>
+                  <p>{formatDuration(spotify.timestamps.end - spotify.timestamps.start)}</p>
                 </div>
               ) : (
                 ""

@@ -52,7 +52,7 @@ export default function Home() {
             href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
             rel="noreferrer"
             target="_blank"
-            className={`text-[#b4befe] leading-3 mb-8 sm:mb-0 sm:leading-none`}
+            className="text-[#b4befe] leading-3 mb-8 sm:mb-0 sm:leading-none"
           >
             .
           </a>

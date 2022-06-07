@@ -43,7 +43,8 @@ const items = [
 ];
 
 export default function Navigation({ page, setPage, controls }) {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(0),
+    [animating, setAnimating] = useState(false);
 
   return (
     <div className="bg-Surface0 rounded-full drop-shadow-lg w-min">
@@ -55,15 +56,19 @@ export default function Navigation({ page, setPage, controls }) {
               index === active ? i.colorName : "hover:bg-Surface1"
             }`}
             onClick={async () => {
+              if (animating) return;
+
               setActive(index);
 
               const variant = index > page ? "exit" : "enter";
 
               if ((page !== 0 || index !== 0) && index !== page) {
+                setAnimating(true);
                 await controls.start(variant);  
                 await controls.start(variant === "exit" ? "enter" : "exit");
                 setPage(index);
                 await controls.start("center");
+                setAnimating(false);
               }
             }}
           >

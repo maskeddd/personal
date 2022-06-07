@@ -3,8 +3,8 @@ import About from "../components/About";
 import Links from "../components/Links";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import Spotify from "../components/Spotify";
 
 const pages = [
@@ -16,32 +16,27 @@ const pages = [
 ];
 
 const variants = {
-  enter: () => {
-    return {
-      x: -1000,
-      opacity: 0,
-    };
+  enter: {
+    x: -1000,
+    opacity: 0,
   },
   center: {
     zIndex: 1,
     x: 0,
     opacity: 1,
   },
-  exit: () => {
-    return {
-      zIndex: 0,
-      x: 1000,
-      opacity: 0,
-    };
-  },
+  exit: {
+    zIndex: 0,
+    x: 1000,
+    opacity: 0,
+  }
 };
 
 export default function Home() {
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(0),
+    controls = useAnimation();
 
-  const paginate = (newPage) => {
-    setPage(newPage);
-  };
+  useEffect(() => void controls.start("center"), [])
 
   return (
     <div className="bg-Base w-full h-full text-text font-mono overflow-auto sm:overflow-hidden">
@@ -58,14 +53,12 @@ export default function Home() {
           </a>
           <p>design</p>
         </div>
-        <AnimatePresence exitBeforeEnter={true}>
+        <AnimatePresence>
           <motion.div
             className="sm:h-80 flex sm:items-center order-3 sm:order-2"
-            key={page}
             variants={variants}
             initial="enter"
-            animate="center"
-            exit="exit"
+            animate={controls}
             transition={{
               x: { type: "spring", stiffness: 300, damping: 30 },
               opacity: { duration: 0.2 },
@@ -75,7 +68,7 @@ export default function Home() {
           </motion.div>
         </AnimatePresence>
         <div className="order-2 sm:order-3">
-          <Navigation pageFunction={paginate} />
+          <Navigation page={page} setPage={setPage} controls={controls} />
         </div>
       </div>
     </div>

@@ -42,7 +42,7 @@ const items = [
   },
 ];
 
-export default function Navigation({ pageFunction }) {
+export default function Navigation({ page, setPage, controls }) {
   const [active, setActive] = useState(0);
 
   return (
@@ -52,11 +52,19 @@ export default function Navigation({ pageFunction }) {
           <div
             key={index}
             className={`w-11 h-11 rounded-full cursor-pointer flex justify-center items-center ${
-              active === index ? i.colorName : "hover:bg-Surface1"
+              index === active ? i.colorName : "hover:bg-Surface1"
             }`}
-            onClick={() => {
+            onClick={async () => {
               setActive(index);
-              pageFunction(index);
+
+              const variant = index > page ? "exit" : "enter";
+
+              if ((page !== 0 || index !== 0) && index !== page) {
+                await controls.start(variant);  
+                await controls.start(variant === "exit" ? "enter" : "exit");
+                setPage(index);
+                await controls.start("center");
+              }
             }}
           >
             <FontAwesomeIcon

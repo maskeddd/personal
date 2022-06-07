@@ -60,7 +60,7 @@ export default function Home() {
         </div>
         <AnimatePresence exitBeforeEnter={true}>
           <motion.div
-            className="order-3 sm:order-2"
+            className="h-80 flex items-center order-3 sm:order-2"
             key={page}
             variants={variants}
             initial="enter"

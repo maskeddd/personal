@@ -1,12 +1,11 @@
 import Window from "./Window";
-import a from "devicon";
 
 export default function Skills() {
   return (
     <Window
       title="Skills"
       content={
-        <div className="flex flex-row flex-wrap gap-4">
+        <div className="flex flex-row flex-wrap gap-4 select-none">
           <div className="bg-Surface1 p-4 rounded-lg flex flex-col items-center gap-2.5 flex-grow">
             Languages
             <div className="flex flex-row text-2xl gap-1.5">

@@ -16,14 +16,14 @@ const links = [
     label: "mskd.eth#0959",
     url: "https://discord.com/users/717991713695858719",
     icon: faDiscord,
-    color: theme.colors.Blue,
+    color: theme.colors.colors.Blue,
     service: "Discord",
   },
   {
     label: "masked_eth",
     url: "https://twitter.com/masked_eth",
     icon: faTwitter,
-    color: theme.colors.Sapphire,
+    color: theme.colors.colors.Sapphire,
     service: "Twitter",
   },
   {
@@ -48,14 +48,14 @@ const links = [
     label: "mskd.eth",
     url: "https://etherscan.io/address/0x43960ddf529842f723e95aef082e75eaac4c3383",
     icon: faEthereum,
-    color: theme.colors.Lavender,
+    color: theme.colors.colors.Lavender,
     service: "Ethereum",
   },
   {
     label: "masked",
     url: "https://www.youtube.com/channel/UCrPN1rm3ouCb8s250P1UXHg",
     icon: faYoutube,
-    color: theme.colors.Red,
+    color: theme.colors.colors.Red,
     service: "YouTube",
   },
 ];
@@ -91,7 +91,7 @@ export default function Links() {
                   fixedWidth
                   className="mr-2"
                   icon={i.icon}
-                  color={i.color || theme.colors.text}
+                  color={i.color || theme.colors.colors.text}
                   title={i.service}
                 />
               )}

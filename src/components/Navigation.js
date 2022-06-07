@@ -5,6 +5,7 @@ import {
   faCircleInfo,
   faTools,
 } from "@fortawesome/free-solid-svg-icons";
+import { faSpotify } from "@fortawesome/free-brands-svg-icons";
 import { useState } from "react";
 import { theme } from "../../tailwind.config";
 
@@ -12,26 +13,32 @@ const items = [
   {
     name: "about",
     icon: faCircleInfo,
-    color: theme.colors.Green,
-    colorName: "bg-Green",
+    color: theme.colors.colors.Blue,
+    colorName: "bg-colors-Blue",
   },
   {
     name: "skills",
     icon: faCode,
-    color: theme.colors.Maroon,
-    colorName: "bg-Maroon",
+    color: theme.colors.colors.Maroon,
+    colorName: "bg-colors-Maroon",
   },
   {
     name: "projects",
     icon: faTools,
-    color: theme.colors.Blue,
-    colorName: "bg-Blue",
+    color: theme.colors.colors.Blue,
+    colorName: "bg-colors-Blue",
   },
   {
     name: "links",
     icon: faLink,
-    color: theme.colors.Lavender,
-    colorName: "bg-Lavender",
+    color: theme.colors.colors.Lavender,
+    colorName: "bg-colors-Lavender",
+  },
+  {
+    name: "spotify",
+    icon: faSpotify,
+    color: theme.colors.colors.Green,
+    colorName: "bg-colors-Green",
   },
 ];
 
@@ -39,7 +46,7 @@ export default function Navigation({ pageFunction }) {
   const [active, setActive] = useState(0);
 
   return (
-    <div className="bg-Surface0 rounded-full drop-shadow-lg w-min mb-12">
+    <div className="bg-Surface0 rounded-full drop-shadow-lg w-min">
       <div className="grid grid-flow-col auto-cols-max p-2.5 gap-2.5">
         {items.map((i, index) => (
           <div

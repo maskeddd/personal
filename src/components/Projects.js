@@ -8,7 +8,7 @@ export default function Projects() {
     <Window
       title="Projects"
       content={
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 select-none">
           <a
             href="https://osscord.xyz"
             rel="noreferrer"
